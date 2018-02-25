@@ -243,7 +243,6 @@ test_lookup_linx(void)
         res0 = (uint64_t)path_compressed_trie_lookup(trie, a);
         res1 = (uint64_t)radix_tree_lookup(radix, a);
         if ( res0 != res1 ) {
-            fprintf(stderr, "%x %llx %llx\n", a, res0, res1);
             return -1;
         }
     }
@@ -361,7 +360,7 @@ main(int argc, const char *const argv[])
     TEST_FUNC("init", test_init, ret);
     TEST_FUNC("lookup", test_lookup, ret);
     TEST_FUNC("lookup_fullroute", test_lookup_linx, ret);
-    //TEST_FUNC("performance", test_lookup_linx_performance, ret);
+    TEST_FUNC("performance", test_lookup_linx_performance, ret);
 
     return 0;
 }
