@@ -7,7 +7,8 @@
 #
 
 bin_PROGRAMS = path_compressed_trie_test_basic
-path_compressed_trie_test_basic_SOURCES = tests/basic.c pctrie.c pctrie.h
+path_compressed_trie_test_basic_SOURCES = tests/basic.c tests/radix.c tests/radix.h \
+	pctrie.c pctrie.h
 
 CLEANFILES = *~
 

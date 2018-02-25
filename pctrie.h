@@ -31,13 +31,17 @@
  * Node data structure of radix tree
  */
 struct path_compressed_trie_node {
-    int valid;
+    int bit;
 
     /* Left child */
     struct path_compressed_trie_node *left;
 
     /* Right child */
     struct path_compressed_trie_node *right;
+
+    /* Key */
+    uint32_t key;
+    int prefixlen;
 
     /* Data */
     void *data;
@@ -58,7 +62,13 @@ extern "C" {
     /* in pctrie.c */
     struct path_compressed_trie *
     path_compressed_trie_init(struct path_compressed_trie *);
-    void path_compressed_trie_release(struct path_compressed_trie *);;
+    void path_compressed_trie_release(struct path_compressed_trie *);
+    void * path_compressed_trie_lookup(struct path_compressed_trie *, uint32_t);
+    int
+    path_compressed_trie_add(struct path_compressed_trie *, uint32_t, int,
+                             void *);
+    void *
+    path_compressed_trie_delete(struct path_compressed_trie *, uint32_t, int);
 
 #ifdef __cplusplus
 }
