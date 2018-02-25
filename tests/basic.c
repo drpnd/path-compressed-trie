@@ -176,7 +176,6 @@ test_lookup_linx(void)
     uint32_t addr1;
     uint64_t addr2;
     ssize_t i;
-    uint64_t res;
     double t0;
     double t1;
     uint32_t a;
